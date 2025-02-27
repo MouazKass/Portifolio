@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouaz's Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+
+<button id="press-button" class="press-button">Not Press Me</button>
+<div id="hacked-overlay" class="hacked-overlay">
+  <div id="terminal">
+    <p>You are hacked!</p>
+    <p>$ <input type="text" id="terminal-input" class="terminal-input"></p>
+    <p id="error-message" style="color: red; display: none;"></p>
+  </div>
+  
+</div>
+
+  <div class="container">
+    <div class="box">
+      <h1><span class="header"></span></h1>
+      <h2><span class="body"></span></h2>
+    </div>
+  </div>
+  <form action="https://www.linkedin.com/in/mouaz-kassouma-36b7b7226/" method="get">
+    <button class="circle circle1">LinkedIn</button>
+</form>
+<form action="https://github.com/MouazKass/" method="get">
+    <button class="circle circle2">Github</button>
+</form>
+  <button class="circle circle3">Mouaz's Server</button>
+<form action="certifications.html">
+    <button class="circle circle4">Cerifications & Skills</button>
+</form>
+<form action="projects.html">
+  <button class="circle circle5">Projects</button>
+</form>
+<form action="experience.html">
+  <button class="circle circle6">Experience</button>
+</form>
+  <script>
+    var typedHeader = new Typed('.header', {
+      strings: ['$whoami','$Hello, <br>I am Mouaz'],
+      typeSpeed: 100,
+      backSpeed: 150,
+    });
+    var typedBody = new Typed('.body', {
+      strings: [
+        'I\'m a computer science major with a strong focus on cybersecurity, ' +
+        'combining hands-on experience in both electrical and software engineering. ' +
+        'I enjoy developing innovative projects and sharing knowledge. Check out more on my portfolio!'
+      ],
+      typeSpeed: 15,
+      backSpeed: 300,
+    });
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const binaryChars = "01".split("");
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = new Array(columns).fill(1);
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0f0";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 33);
+
+  document.getElementById('press-button').onclick = function() {
+    document.getElementById('hacked-overlay').style.display = 'block';
+  };
+  document.getElementById('terminal-input').onkeydown = function(event) {
+    if (event.key === 'Enter') {
+      if (this.value.toLowerCase().trim() === 'exit') {
+        document.getElementById('hacked-overlay').style.display = 'none';
+      } else {
+        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error-message').textContent = "Type 'exit' to close";
+      }
+      this.value = '';
+    }
+  };
+
+
+  </script>
+</body>
+</html>

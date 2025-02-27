@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouaz's Portfolio</title>
+    <header>
+        <nav>
+            <ul>
+                <strong>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li style="color: red;">Experience</li>
+                    <li><a href="main.html">EXIT</a></li>
+                </strong>
+            </ul>
+        </nav>
+    </header>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="box" style="padding: 10%;">
+        <h1>$experience</h1>
+        <div class="card-container">
+            <div class="card">
+                <h2>Society of Cybersecurity</h2>
+                <h3>President</h3>
+                <p>
+                    leading a team of dedicated 
+                    students in organizing workshops, competitions, and events to promote cybersecurity 
+                    awareness and knowledge. Our initiatives include Capture The Flag (CTF) competitions, 
+                    guest lectures, and hands-on training sessions to equip students with practical skills 
+                    and insights into the field. Additionally, we work on Proxmox Linux and configure the 
+                    server that we are hosting at AUS, ensuring a secure and efficient infrastructure for 
+                    our projects.
+                </p>
+                <ul>
+                    <li>>Cybersecurity</li>
+                    <li>>Linux Administration</li>
+                    <li>>Server Configuration</li>
+                    <li>>Infrastructure Security</li>
+                    <li>>CTF Organization</li>
+                </ul>
+            </div>
+            
+        <div class="card-container">
+            <div class="card">
+                <h2>Red Hat System Administration I (RH124)</h2>
+                <h3>Technical Assistant</h3>
+                <p>
+                    Assisted in a RH124 program, aiding in training students new to Linux system administration. 
+                    Responsibilities included facilitating practical sessions, responding to student inquiries, 
+                    and setting up systems. Contributed to teaching core Linux administration skills, helping 
+                    attendees lay groundwork for future careers as Linux system administrators.
+                </p>
+                <ul>
+                    <li>>Red Hat Enterprise Linux</li>
+                    <li>>Linux Administration</li>
+                    <li>>Server Management</li>
+                    <li>>System Setup</li>
+                    <li>>Troubleshooting</li>
+                    <li>>Training</li>
+                </ul>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h2>AUS Racing Team</h2>
+                    <h3>Electrical & Software Engineering</h3>
+                    <p>
+                        Welcome to the AUS Racing Team, a dynamic group of passionate 
+                        students from the American University of Sharjah dedicated to
+                        competing in student motorsport events. In my role, I handle
+                        the electrical and software engineering aspects, integrating
+                        advanced electronic systems with robust software solutions
+                        to boost our race performance.
+                    </p>
+                    <ul>
+                        <li>>Electrical Engineering</li>
+                        <li>>Software Engineering</li>
+                        <li>>Embedded Systems</li>
+                        <li>>Control Systems</li>
+                        <li>>Automation</li>
+                        <li>>Data Acquisition</li>
+                    </ul>
+                    
+                </div>  
+                <div class="side-card">
+                    <h2>Tools & Skills</h2>
+                    <p>
+                        I have developed advanced expertise in essential IT security tools and skills. 
+                        This includes network security, compliance and operational security, threat and 
+                        vulnerability management, as well as strategies for application, data, and host 
+                        protection, along with access control, identity management, and cryptography.
+                    </p>
+                    <ul class="skill-list">
+                        <li><strong>Programming Languages:</strong> C++, Python, Embedded C, SQL, HTML, JavaScript</li>
+                    </ul>
+                    <h3 class="skill-category">Cybersecurity & Networking</h3>
+                    <ul class="skill-list">
+                        <li>Linux (Kali, Ubuntu)</li>
+                        <li>Capture The Flag (CTF) competitions</li>
+                        <li>Network security (Wireshark, Metasploit)</li>
+                        <li>System forensics</li>
+                        <li>Firewall & IDS management</li>
+                    </ul>
+                    <h3 class="skill-category">Embedded Systems & Electronics</h3>
+                    <ul class="skill-list">
+                        <li>STM32 (Nucleo-F401RE)</li>
+                        <li>CAN Bus communication</li>
+                        <li>UART, SPI, I2C protocols</li>
+                        <li>Microcontroller interfacing</li>
+                        <li>Circuit prototyping & debugging</li>
+                    </ul>
+                    <h3 class="skill-category">Engineering & Automation</h3>
+                    <ul class="skill-list">
+                        <li>AI-powered automation</li>
+                        <li>Self-checkout system development</li>
+                        <li>IoT & hardware-software integration</li>
+                    </ul>
+                    <h3 class="skill-category">IT & System Administration</h3>
+                    <ul class="skill-list">
+                        <li>Linux system administration</li>
+                        <li>Virtualization & Docker</li>
+                        <li>CI/CD pipelines</li>
+                    </ul>
+                    <h3 class="skill-category">Digital Content & Marketing</h3>
+                    <ul class="skill-list"></ul>
+                        <li>Video editing (Adobe Premiere Pro, Final Cut Pro)</li>
+                        <li>Social media marketing & SEO</li>
+                        <li>Content creation & ad targeting</li>
+                    </ul>
+                </div>
+            </div>
+    <script>
+      const canvas = document.getElementById("matrix");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const binaryChars = "01".split("");
+      const fontSize = 16;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = new Array(columns).fill(1);
+
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.025)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0f0";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+      setInterval(drawMatrix, 33);
+    </script>
+</body>
+</html>

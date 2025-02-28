@@ -311,7 +311,7 @@ a {
   }
 }
 
-@media (max-width: 100px) {
+@media (max-width: 1000px) {
   .container {
     width: 90%;
     margin-left: -50px;

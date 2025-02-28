@@ -315,12 +315,12 @@ body {
         max-width: none;
     }
     h1 {
-        font-size: 6em;
+        font-size: 5em;
         margin-top: 20px;
     }
 
     h2 {
-        font-size: 3em;
+        font-size: 2em;
     }
 
 
@@ -356,12 +356,12 @@ body {
         width: 100%;
     }
     .circle{
-        font-size:2em;
+        font-size:1.5em;
         font-family: Consolas, "Courier New", monospace;
         color: #ffffff;
         position: absolute;
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
     .circle1 {
         top: 80%;
